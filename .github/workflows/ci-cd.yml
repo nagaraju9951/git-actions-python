@@ -20,11 +20,17 @@ jobs:
       with:
         python-version: '3.11.6'
 
-    - name: Install dependencies
+    - name: List directory contents
+      run: ls -l
+
+    - name: Upgrade pip
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
 
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        
     - name: Run tests
       run: |
         python -m unittest discover -s tests -p '*_test.py'
@@ -34,4 +40,4 @@ jobs:
       uses: akhileshns/heroku-deploy@v3.12.12
       with:
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-        heroku_app_name: "your-heroku-app-name"
+        heroku_app_name: "nagarajusatyla.ce@gmaqil.com"
